@@ -1,0 +1,257 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 14 100% 67%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 14 100% 97%;
+    --secondary-foreground: 14 100% 40%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 14 100% 67%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 14 100% 67%;
+    --radius: 0.75rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 14 100% 67%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 14 100% 97%;
+    --sidebar-accent-foreground: 14 100% 40%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 14 100% 67%;
+    
+    /* Custom Travelo Colors */
+    --coral: 14 100% 67%;
+    --coral-light: 14 100% 95%;
+    --coral-dark: 14 80% 50%;
+    --coral-gradient: linear-gradient(135deg, #FF8A65 0%, #FF7043 100%);
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 14 100% 67%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 14 100% 67%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 14 100% 67%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 14 100% 67%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 14 100% 67%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Coral Gradient Button */
+  .btn-coral {
+    @apply bg-gradient-to-r from-[#FF8A65] to-[#FF7043] text-white font-semibold;
+    @apply hover:from-[#FF7043] hover:to-[#F4511E] transition-all duration-300;
+    @apply shadow-lg shadow-coral/30;
+  }
+  
+  /* Card Hover Effect */
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+  .card-hover:hover {
+    @apply -translate-y-1 shadow-xl;
+  }
+  
+  /* Glass Effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-xl border border-white/20;
+  }
+  
+  .dark .glass {
+    @apply bg-black/40 backdrop-blur-xl border border-white/10;
+  }
+  
+  /* Section Padding */
+  .section-padding {
+    @apply py-16 md:py-24 px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Container */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Text Gradient */
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#FF8A65] to-[#FF7043] bg-clip-text text-transparent;
+  }
+  
+  /* Status Badges */
+  .status-pending {
+    @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400;
+  }
+  .status-paid {
+    @apply bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400;
+  }
+  .status-cancelled {
+    @apply bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400;
+  }
+  
+  /* Rating Stars */
+  .star-filled {
+    @apply text-[#FFB400] fill-[#FFB400];
+  }
+  .star-empty {
+    @apply text-gray-300 dark:text-gray-600;
+  }
+  
+  /* Price Tag */
+  .price-tag {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold;
+    @apply bg-[#FF8A65]/10 text-[#FF7043] dark:bg-[#FF8A65]/20;
+  }
+  
+  /* Search Input */
+  .search-input {
+    @apply w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700;
+    @apply bg-white dark:bg-gray-800;
+    @apply focus:outline-none focus:ring-2 focus:ring-[#FF8A65]/50 focus:border-[#FF8A65];
+    @apply transition-all duration-200;
+  }
+  
+  /* Filter Chip */
+  .filter-chip {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm;
+    @apply bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300;
+    @apply hover:bg-[#FF8A65]/10 hover:text-[#FF7043] transition-colors cursor-pointer;
+  }
+  .filter-chip.active {
+    @apply bg-[#FF8A65] text-white hover:bg-[#FF7043];
+  }
+  
+  /* Amenity Badge */
+  .amenity-badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs;
+    @apply bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400;
+  }
+  
+  /* Image Overlay */
+  .image-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent;
+  }
+  
+  /* Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800 rounded-full;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+  }
+}
+
+@layer utilities {
+  /* Animation Utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+  .animate-slide-in-right {
+    animation: slideInRight 0.3s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideInRight {
+    from { 
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Hover Scale */
+  .hover-scale {
+    @apply transition-transform duration-300;
+  }
+  .hover-scale:hover {
+    @apply scale-105;
+  }
+  
+  /* Line Clamp */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
